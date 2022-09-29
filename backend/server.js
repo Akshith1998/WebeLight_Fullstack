@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 const UserController = require("./User/Routes/UserRoute");
+const ProductController = require("./User/Routes/ProductRoute");
 const cors = require("cors");
 const routes = ["/user/login", "/user/signup", "/"];
 const jwt = require("jsonwebtoken");
@@ -32,6 +33,7 @@ mongoose
   });
 
 app.use("/user", UserController);
+app.use("/product", ProductController);
 
 app.listen(process.env.PORT || 3001, (err) => {
   if (!err) {
